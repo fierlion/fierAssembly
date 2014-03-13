@@ -1,6 +1,6 @@
 TITLE Random Number Sort    (randSort.asm)
 
-; Author: Ray Foote
+; Author: Ray Allan
 ; Course / Project ID				CS271_400, Homework 5                 Date:  Feb. 26, 2014
 ; Description: This program generates numbers in the range [100...999], displays the original list
 ; sorts the list and calculates the median value.  Finally it diplays the list  sorted in descending order.
@@ -15,7 +15,7 @@ RAND_LOW = 100
 .data
 
 		progTitle		BYTE			"Random Number Sort", 0
-		progName		BYTE			"Programmed by Ray Foote", 0
+		progName		BYTE			"Programmed by Ray Allan", 0
 		userInst		BYTE			"Enter a number in the range [10...200].  This program will ", 0
 		userInst2		BYTE			"generate your number of random numbers .  Then it will display this list, ", 0
 		userInst3		BYTE			"sort it, find its median value and display it, finally it will display it", 0
