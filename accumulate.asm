@@ -1,6 +1,6 @@
 TITLE Accumulator    (acculuate.asm)
 
-; Author: Ray Foote
+; Author: Ray Allan
 ; Course / Project ID       CS271_400 Homework 3          Date: 02/04/14
 ; Description: This program takes repeated (validated as non-negative between 0-100) user input numbers and calculates the average over all
 
@@ -11,7 +11,7 @@ UPPER_LIMIT = 100
 .data
 
 progTitle		BYTE		"Accumulator", 0
-progName		BYTE		"Programmed by Ray Foote", 0
+progName		BYTE		"Programmed by Ray Allan", 0
 namePrompt		BYTE		"What's your name? ", 0
 greeting		BYTE		"Hello, ", 0
 userInst1		BYTE		"Enter a series of integers in the range [0-100] to be averaged", 0
