@@ -23,7 +23,7 @@ RAND_LOW = 100
 		numPrompt		BYTE			"Enter number: ",0
 		request			DWORD			?				; user number input
 		errorRange		BYTE			"Out of range.  Enter a number in the range [10...200]: ", 0
-		randList		DWORD		USR_MAX		DUP(?)
+		randList		DWORD			USR_MAX		DUP(?)
 		randCount		DWORD			0	
 		unsortedDisp		BYTE			"The unsorted random numbers: ", 0
 		medianDisp		BYTE			"The median is: ", 0
