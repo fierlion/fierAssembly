@@ -1,6 +1,6 @@
 TITLE Prime Numbers    (primes.asm)
 
-; Author: Ray Foote
+; Author: Ray Allan
 ; Course / Project ID       CS271_400, Homework 4                 Date: Feb 11, 2014
 ; Description: This program takes and validates user input int 'n' [1...200] then calculates 
 ; and displays all the prime numbers up to and including the 'nth' prime, 10 primes per line.
@@ -12,32 +12,31 @@ UPPER_LIMIT = 200
 
 .data
 
-progTitle				BYTE			"Prime Numbers", 0
-progName			BYTE			"Programmed by Ray Foote", 0
-userInst				BYTE			"Enter the number (in the range [1...200]) of primes you would like to see.", 0
-numPrompt			BYTE			"Enter number: ",0
-userNum				DWORD			?				; user number input
-userNumDec			DWORD			?				; user number decrement divisor
-primeLoop			DWORD			?				; outer loop counter
-current				DWORD			?
-currentDec			DWORD			?
-isntPrime				DWORD			0
-numPrimes			DWORD			0				; count of primes
-errorRange			BYTE			"Out of range.  Enter a number in the range [1...200]: ", 0
-outro1					BYTE			"That's all ", 0
-outro2					BYTE			" of them.",0
-outro3					BYTE			"Goodbye."
+progTitle		BYTE			"Prime Numbers", 0
+progName		BYTE			"Programmed by Ray Allan", 0
+userInst		BYTE			"Enter the number (in the range [1...200]) of primes you would like to see.", 0
+numPrompt		BYTE			"Enter number: ",0
+userNum			DWORD			?				; user number input
+userNumDec		DWORD			?				; user number decrement divisor
+primeLoop		DWORD			?				; outer loop counter
+current			DWORD			?
+currentDec		DWORD			?
+isntPrime		DWORD			0
+numPrimes		DWORD			0				; count of primes
+errorRange		BYTE			"Out of range.  Enter a number in the range [1...200]: ", 0
+outro1			BYTE			"That's all ", 0
+outro2			BYTE			" of them.",0
+outro3			BYTE			"Goodbye."
 
 .code
 
 	main PROC
-		call			greeting
-		call			getNums
-		call			primes
-		call			goodbye
+		call		greeting
+		call		getNums
+		call		primes
+		call		goodbye
 		exit														; exit to operating system
 	main ENDP
-
 
 
 ; Description: Prints program tite, programmer name and instructions
@@ -48,17 +47,17 @@ outro3					BYTE			"Goodbye."
 	greeting PROC
 		pushad
 		mov		edx, OFFSET progTitle
-		call			WriteString
+		call		WriteString
 		mov		al, 9
-		call			WriteChar
-		call			WriteChar
+		call		WriteChar
+		call		WriteChar
 		mov		edx, OFFSET progName
-		call			WriteString
-		call			CrLf
-		call			CrLf
+		call		WriteString
+		call		CrLf
+		call		CrLf
 		mov		edx, OFFSET userInst
-		call			WriteString
-		call			CrLf
+		call		WriteString
+		call		CrLf
 		popad
 		ret
 	greeting ENDP
@@ -73,24 +72,24 @@ outro3					BYTE			"Goodbye."
 		pushad
 L1:
 		mov		edx, OFFSET numPrompt
-		call			WriteString
-		call			ReadInt
+		call		WriteString
+		call		ReadInt
 		mov		userNum, eax
 		mov		userNumDec, eax
-		mov		ecx, userNum									; mov userNum preparing for loop
-		mov		eax, userNum								; loop check
-		cmp		eax, UPPER_LIMIT							; less than UPPER_LIMIT
-		jle			L2
+		mov		ecx, userNum				; mov userNum preparing for loop
+		mov		eax, userNum				; loop check
+		cmp		eax, UPPER_LIMIT			; less than UPPER_LIMIT
+		jle		L2
 		mov		edx, OFFSET errorRange
-		call			WriteString
-		call			CrLf
+		call		WriteString
+		call		CrLf
 		jmp		L1
 L2:	
 		cmp		eax, 0											; greater than 0
-		jg			L3
+		jg		L3
 		mov		edx, OFFSET errorRange
-		call			WriteString
-		call			CrLf
+		call		WriteString
+		call		CrLf
 		jmp		L1
 L3:
 		popad
@@ -110,21 +109,21 @@ Top:
 		mov		eax, current
 		mov		current, eax
 		mov		currentDec, eax							
-		call			isPrime										; call to isPrime
+		call		isPrime					; call to isPrime
 		mov		eax, isntPrime
 		cmp		eax, 0
-		jg			Nope
+		jg		Nope
 		mov		eax, current
-		call			WriteDec
-		inc			numPrimes
-		mov		al, 9											; '9' is the ASCII 'tab' decimal
-		call			WriteChar
+		call		WriteDec
+		inc		numPrimes
+		mov		al, 9					; '9' is the ASCII 'tab' decimal
+		call		WriteChar
 Nope:
 		mov		eax, current
 		dec		eax
 		mov		current, eax
 		cmp		eax, 1
-		je			Outro
+		je		Outro
 		jmp		Top
 Outro:
 		popad
@@ -141,20 +140,20 @@ Outro:
 		mov		isntPrime, 0
 		mov		eax, current
 		dec		eax
-		mov		ecx, eax										; set up loop (userNum -1)
+		mov		ecx, eax				; set up loop (userNum -1)
 Top:
 		mov		eax, current
 		cdq
 		mov		ebx, currentDec
 		dec		ebx
-		div			ebx
+		div		ebx
 		mov		currentDec, ebx
 		cmp		edx, 0
-		je			P1
+		je		P1
 		loop		Top
 P1:
 		cmp		eax, current
-		je			P4
+		je		P4
 		mov		isntPrime, 1
 P4:
 		loop		Top											; counting loop (1 to n) implemented using MASM loop instuction
@@ -169,17 +168,17 @@ P4:
 ; Registers changed: none
 	goodbye PROC
 		pushad
-		call			CrLf
+		call		CrLf
 		mov		edx, OFFSET outro1
-		call			WriteString
+		call		WriteString
 		mov		eax, numPrimes
-		call			WriteDec
+		call		WriteDec
 		mov		edx, OFFSET outro2
-		call			WriteString
-		call			CrLf
+		call		WriteString
+		call		CrLf
 		mov		edx, OFFSET outro3
-		call			WriteString
-		call			CrLf
+		call		WriteString
+		call		CrLf
 		popad
 		ret
 	goodbye ENDP
