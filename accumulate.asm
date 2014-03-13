@@ -10,27 +10,27 @@ UPPER_LIMIT = 100
 
 .data
 
-progTitle			BYTE			"Accumulator", 0
-progName			BYTE			"Programmed by Ray Foote", 0
-namePrompt			BYTE			"What's your name? ", 0
-greeting			BYTE			"Hello, ", 0
-userInst1			BYTE			"Enter a series of integers in the range [0-100] to be averaged", 0
-userInst2			BYTE			"After each number press enter. To end input, enter a negative integer.", 0
-numPrompt			BYTE			" Enter number: ",0
-userName			BYTE			33 DUP(0)		; name to be input by user
-userNum				DWORD			?				; user number input
-errorRange			BYTE			"Out of range.  Enter a number in the range [0-100]", 0
-infoAccum			BYTE			"The sum of these numbers is: ", 0
-totNums				BYTE			"You entered a total of ", 0
-numName				BYTE			" numbers.", 0
-infoAverage			BYTE			"The average to three decimal places (rounded) is: ", 0
-accumulated			DWORD		0				; total accumulation
-numNums				DWORD		0				; number of integers entered
-quot				DWORD		0
-remain				DWORD		?
-round				DWORD		?				; last number test for rounding up
-doneIn				BYTE			"Finished input.", 0
-goodbye				BYTE			"Goodbye, ", 0
+progTitle		BYTE		"Accumulator", 0
+progName		BYTE		"Programmed by Ray Foote", 0
+namePrompt		BYTE		"What's your name? ", 0
+greeting		BYTE		"Hello, ", 0
+userInst1		BYTE		"Enter a series of integers in the range [0-100] to be averaged", 0
+userInst2		BYTE		"After each number press enter. To end input, enter a negative integer.", 0
+numPrompt		BYTE		" Enter number: ",0
+userName		BYTE		33 DUP(0)		; name to be input by user
+userNum			DWORD		?				; user number input
+errorRange		BYTE		"Out of range.  Enter a number in the range [0-100]", 0
+infoAccum		BYTE		"The sum of these numbers is: ", 0
+totNums			BYTE		"You entered a total of ", 0
+numName			BYTE		" numbers.", 0
+infoAverage		BYTE		"The average to three decimal places (rounded) is: ", 0
+accumulated		DWORD		0				; total accumulation
+numNums			DWORD		0				; number of integers entered
+quot			DWORD		0
+remain			DWORD		?
+round			DWORD		?				; last number test for rounding up
+doneIn			BYTE		"Finished input.", 0
+goodbye			BYTE		"Goodbye, ", 0
 
 .code
 main PROC
