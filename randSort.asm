@@ -137,7 +137,7 @@ L2:
 		call		CrLf
 		jmp		L1
 L3:
-		popad													; popad (-32) leaves 4 on stack
+		popad						; popad (-32) leaves 4 on stack
 		ret		12
 	getNums ENDP
 
