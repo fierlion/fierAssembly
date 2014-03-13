@@ -85,7 +85,7 @@ L1:
 		call		CrLf
 		jmp		L1
 L2:	
-		cmp		eax, 0											; greater than 0
+		cmp		eax, 0					; greater than 0
 		jg		L3
 		mov		edx, OFFSET errorRange
 		call		WriteString
@@ -156,7 +156,7 @@ P1:
 		je		P4
 		mov		isntPrime, 1
 P4:
-		loop		Top											; counting loop (1 to n) implemented using MASM loop instuction
+		loop		Top					; counting loop (1 to n) implemented using MASM loop instuction
 		popad
 		ret
 	isPrime ENDP
